@@ -45,21 +45,21 @@ async def skip_current_song(chat_id):
                         chat_id,
                         AudioPiped(
                             url,
-                            HighQualityAudio(),
+                            LowQualityVideo(),
                         ),
                     )
                 elif type == "Video":
                     if Q == 720:
-                        hm = HighQualityVideo()
+                        hm = LowQualityVideo()
                     elif Q == 480:
-                        hm = MediumQualityVideo()
+                        hm = LowQualityVideo()
                     elif Q == 360:
                         hm = LowQualityVideo()
                     await calls.change_stream(
                         chat_id,
                         AudioVideoPiped(
                             url,
-                            HighQualityAudio(),
+                            LowQualityVideo(),
                             hm
                         )
                     )
