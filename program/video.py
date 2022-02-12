@@ -54,7 +54,7 @@ async def ytdl(link):
         "yt-dlp",
         "-g",
         "-f",
-        "best[height<=?720][width<=?1280]",
+        "best[height<=?480][width<=?848]",
         f"{link}",
         stdout=asyncio.subprocess.PIPE,
         stderr=asyncio.subprocess.PIPE,
@@ -201,9 +201,9 @@ async def vplay(c: Client, m: Message):
                 thumbnail = f"{IMG_5}"
                 image = await thumb(thumbnail, title, userid, ctitle)
                 if Q == 720:
-                    amaze = HighQualityVideo()
+                    amaze = LowQualityVideo()
                 elif Q == 480:
-                    amaze = MediumQualityVideo()
+                    amaze = LowQualityVideo()
                 elif Q == 360:
                     amaze = LowQualityVideo()
                 await music_on(chat_id)
@@ -238,7 +238,7 @@ async def vplay(c: Client, m: Message):
                 query = m.text.split(None, 1)[1]
                 search = ytsearch(query)
                 Q = 720
-                amaze = HighQualityVideo()
+                amaze = LowQualityVideo()
                 if search == 0:
                     await loser.edit("❌ **no results found.**")
                 else:
@@ -309,7 +309,7 @@ async def vplay(c: Client, m: Message):
             query = m.text.split(None, 1)[1]
             search = ytsearch(query)
             Q = 720
-            amaze = HighQualityVideo()
+            amaze = LowQualityVideo()
             if search == 0:
                 await loser.edit("❌ **no results found.**")
             else:
@@ -349,7 +349,7 @@ async def vplay(c: Client, m: Message):
                                 chat_id,
                                 AudioVideoPiped(
                                     ytlink,
-                                    HighQualityAudio(),
+                                    LowQualityAudio(),
                                     amaze,
                                 ),
                                 stream_type=StreamType().local_stream,
@@ -465,7 +465,7 @@ async def vstream(c: Client, m: Message):
                 )
             loser = await c.send_message(chat_id, "🔍 **Loading...**")
         else:
-            await m.reply("`/vstream` {link} {720/480/360}")
+            await m.reply("`/vstream` {link} 360}")
 
         regex = r"^(https?\:\/\/)?(www\.youtube\.com|youtu\.?be)\/.+"
         match = re.match(regex, link)
@@ -491,9 +491,9 @@ async def vstream(c: Client, m: Message):
                 )
             else:
                 if Q == 720:
-                    amaze = HighQualityVideo()
+                    amaze = LowQualityVideo()
                 elif Q == 480:
-                    amaze = MediumQualityVideo()
+                    amaze = LowQualityVideo()
                 elif Q == 360:
                     amaze = LowQualityVideo()
                 try:
@@ -504,7 +504,7 @@ async def vstream(c: Client, m: Message):
                         chat_id,
                         AudioVideoPiped(
                             livelink,
-                            HighQualityAudio(),
+                            LowQualityAudio(),
                             amaze,
                         ),
                         stream_type=StreamType().live_stream,
