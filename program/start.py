@@ -85,15 +85,15 @@ async def start_(c: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "📣 IAZ Channel", url=f"https://t.me/Indian_Anime_Z"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "👥 YouTube", url=f"https://youtube.com/c/AnimeNagri"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 Source Code", url="https://github.com/levina-lab/video-stream"
+                        "🌐 Contact Us", url="telegram.me/S_akata"
                     )
                 ],
             ]
