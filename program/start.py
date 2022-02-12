@@ -93,7 +93,7 @@ async def start_(c: Client, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 Contact Us", url="telegram.me/S_akata"
+                        "🌐 Contact Us", url="telegram.me/aria_antm"
                     )
                 ],
             ]
