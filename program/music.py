@@ -44,7 +44,7 @@ def ytsearch(query: str):
 
 async def ytdl(link: str):
     stdout, stderr = await bash(
-        f'yt-dlp -g -f "best[height<=?720][width<=?1280]" {link}'
+        f'yt-dlp -g -f "best[height<=?480][width<=?848]" {link}'
     )
     if stdout:
         return 1, stdout
@@ -175,14 +175,14 @@ async def play(c: Client, m: Message):
                     userid = m.from_user.id
                     thumbnail = f"{IMG_5}"
                     image = await thumb(thumbnail, title, userid, ctitle)
-                    await suhu.edit("🔄 Joining Group Call...")
+                    await suhu.edit("🎶 Joining Group Call...")
                     await music_on(chat_id)
                     await add_active_chat(chat_id)
                     await calls.join_group_call(
                         chat_id,
                         AudioPiped(
                             dl,
-                            HighQualityAudio(),
+                            LowQualityAudio(),
                         ),
                         stream_type=StreamType().pulse_stream,
                     )
@@ -251,7 +251,7 @@ async def play(c: Client, m: Message):
                                     chat_id,
                                     AudioPiped(
                                         ytlink,
-                                        HighQualityAudio(),
+                                        LowQualityAudio(),
                                     ),
                                     stream_type=StreamType().local_stream,
                                 )
@@ -312,14 +312,14 @@ async def play(c: Client, m: Message):
                         os.remove(image)
                     else:
                         try:
-                            await suhu.edit("🔄 Joining Group Call...")
+                            await suhu.edit("🎶 Joining Group Call...")
                             await music_on(chat_id)
                             await add_active_chat(chat_id)
                             await calls.join_group_call(
                                 chat_id,
                                 AudioPiped(
                                     ytlink,
-                                    HighQualityAudio(),
+                                    LowQualityAudio(),
                                 ),
                                 stream_type=StreamType().local_stream,
                             )
