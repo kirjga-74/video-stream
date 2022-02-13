@@ -61,7 +61,8 @@ setEffect(2, DELAY, DELAY_TIME, 250)
 setEffect(3, VOLUME, GAIN, -10, pointD, -60, pointD+1)
 
 finish() 
-
+     
+      InlineKeyboardButton(text="🎶", callback_data=f'setEffect | {user_id}'),
       InlineKeyboardButton(text="⏹", callback_data=f'set_stop | {user_id}'),
       InlineKeyboardButton(text="⏸", callback_data=f'set_pause | {user_id}'),
       InlineKeyboardButton(text="▶️", callback_data=f'set_resume | {user_id}'),
